@@ -69,8 +69,6 @@ favouriteRouter.route('/')
     })
     .delete(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
         Favourites.find({})
-            .populate('user')
-            .populate('dishes')
             .then((favourites) => {
                 var favouritesToDelete;
                 if (favourites) {
@@ -153,8 +151,6 @@ favouriteRouter.route('/')
     })
     .delete(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
         Favourites.find({})
-            .populate('user')
-            .populate('dishes')
             .then((favourites) => {
                 var user;
                 if(favourites)
